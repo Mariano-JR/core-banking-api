@@ -44,7 +44,7 @@ This project is a backend service designed to handle core financial operations, 
 Here is the planned evolution for this financial architecture:
 
 - [x] **Phase 1:** Initial Setup & Entity Mapping (User Entity with UUIDs).
-- [ ] **Phase 2:** JPA Repositories, Services, and REST Controllers implementation.
+- [x] **Phase 2:** JPA Repositories, Services, and REST Controllers implementation.
 - [ ] **Phase 3:** Financial Domain (Account Entity and database relationships).
 - [ ] **Phase 4:** Transaction Engine (ACID compliance with `@Transactional`).
 - [ ] **Phase 5:** Global Exception Handling (`@ControllerAdvice`) & Data Validation.
