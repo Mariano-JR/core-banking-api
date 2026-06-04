@@ -1,4 +1,4 @@
-package com.bank.ledgerapi;
+package com.bank.ledgerapi.entities;
 
 import jakarta.persistence.*;
 
@@ -19,6 +19,9 @@ public class User  {
 
     @Column(unique = true, nullable = false)
     private String email;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Account account;
 
     // ---- CONSTRUTORES ----
     public User() {
@@ -42,4 +45,14 @@ public class User  {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
+    public Account getAccount() { return account; }
+    
+    public void bindAccount(Account account) {
+        if (this.account != null) {
+            throw new IllegalStateException("Violação de integridade: Este usuário já tem uma conta vinculada.");
+        }
+
+        this.account = account;
+    }
 }

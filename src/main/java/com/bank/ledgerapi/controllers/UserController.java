@@ -1,6 +1,6 @@
 package com.bank.ledgerapi.controllers;
 
-import com.bank.ledgerapi.User;
+import com.bank.ledgerapi.entities.User;
 import com.bank.ledgerapi.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
