@@ -46,6 +46,10 @@ Here is the planned evolution for this financial architecture:
 - [x] **Phase 1:** Initial Setup & Entity Mapping (User Entity with UUIDs).
 - [x] **Phase 2:** JPA Repositories, Services, and REST Controllers implementation.
 - [x] **Phase 3:** Financial Domain (Account Entity and database relationships).
-- [ ] **Phase 4:** Transaction Engine (ACID compliance with `@Transactional`).
-- [ ] **Phase 5:** Global Exception Handling (`@ControllerAdvice`) & Data Validation.
-- [ ] **Phase 6:** Cloud Deployment (AWS Integration).
+- [x] **Phase 4:** Transaction Engine (ACID compliance with `@Transactional`).
+- [x] **Phase 5:** Global Exception Handling (`@ControllerAdvice`) & Data Validation.
+- [ ] **Phase 6:** API Documentation (Swagger/OpenAPI integration).
+- [ ] **Phase 7:** Security Layer (Spring Security, Password Hashing & JWT Authentication).
+- [ ] **Phase 8:** Automated Testing (Unit testing with JUnit 5 & Mockito).
+- [ ] **Phase 9:** CI/CD Pipeline (GitHub Actions & Automated Builds).
+- [ ] **Phase 10:** Cloud Deployment (AWS EC2 / RDS Integration).
