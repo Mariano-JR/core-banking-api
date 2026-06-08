@@ -19,14 +19,14 @@ public class UserService {
         this.accountRepository = accountRepository;
     }
 
-    public User createUser(User user) {
-        Optional<User> existingUser = userRepository.findByCpf(user.getCpf());
+    public User createUser(String name, String cpf, String email) {
+        Optional<User> existingUser = userRepository.findByCpf(cpf);
 
         if (existingUser.isPresent()) {
             throw new IllegalArgumentException("Operação negada: Este CPF já esta cadastrado.");
         }
 
-        User newUser = new User(user.getName(), user.getCpf(), user.getEmail());
+        User newUser = new User(name, cpf, email);
 
         String uniqueAccountNumber = generateUniqueAccountNumber();
         Account newAccount = new Account(uniqueAccountNumber, newUser);
