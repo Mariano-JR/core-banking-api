@@ -48,8 +48,16 @@ Here is the planned evolution for this financial architecture:
 - [x] **Phase 3:** Financial Domain (Account Entity and database relationships).
 - [x] **Phase 4:** Transaction Engine (ACID compliance with `@Transactional`).
 - [x] **Phase 5:** Global Exception Handling (`@ControllerAdvice`) & Data Validation.
-- [ ] **Phase 6:** API Documentation (Swagger/OpenAPI integration).
+- [x] **Phase 6:** API Documentation (Swagger/OpenAPI integration).
 - [ ] **Phase 7:** Security Layer (Spring Security, Password Hashing & JWT Authentication).
 - [ ] **Phase 8:** Automated Testing (Unit testing with JUnit 5 & Mockito).
 - [ ] **Phase 9:** CI/CD Pipeline (GitHub Actions & Automated Builds).
 - [ ] **Phase 10:** Cloud Deployment (AWS EC2 / RDS Integration).
+
+## 📚 API Documentation
+
+This project uses **Swagger (OpenAPI)** for interactive endpoint documentation and testing.
+
+To explore the API, start the Spring Boot application and navigate to the following URL in your browser:
+
+> **http://localhost:8080/swagger-ui/index.html**
