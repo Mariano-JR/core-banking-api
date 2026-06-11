@@ -2,6 +2,9 @@ package com.bank.ledgerapi.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.apache.commons.lang3.builder.EqualsExclude;
+import org.apache.commons.lang3.builder.ToStringExclude;
+
 import java.math.BigDecimal;
 import java.util.Random;
 import java.util.UUID;
@@ -23,6 +26,8 @@ public class Account {
     @JsonIgnore
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, updatable = false)
+    @ToStringExclude
+    @EqualsExclude
     private User user;
 
     public Account() {}

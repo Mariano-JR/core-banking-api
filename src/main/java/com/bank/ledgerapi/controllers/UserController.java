@@ -38,7 +38,7 @@ public class UserController {
             )
     })
     public ResponseEntity<User> createUser(@RequestBody CreateUserRequestDTO user) {
-        User savedUser = userService.createUser(user.name(), user.cpf(), user.email());
+        User savedUser = userService.createUser(user.name(), user.cpf(), user.email(), user.password());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
     }

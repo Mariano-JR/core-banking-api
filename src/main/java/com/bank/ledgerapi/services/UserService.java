@@ -4,29 +4,34 @@ import com.bank.ledgerapi.entities.User;
 import com.bank.ledgerapi.entities.Account;
 import com.bank.ledgerapi.repositories.AccountRepository;
 import com.bank.ledgerapi.repositories.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.Random;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
     private final AccountRepository accountRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository, AccountRepository accountRepository) {
+    public UserService(UserRepository userRepository, AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.accountRepository = accountRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public User createUser(String name, String cpf, String email) {
-        Optional<User> existingUser = userRepository.findByCpf(cpf);
+    public User createUser(String name, String cpf, String email, String password) {
+        UserDetails existingUser = userRepository.findByCpf(cpf);
 
-        if (existingUser.isPresent()) {
+        if (existingUser != null) {
             throw new IllegalArgumentException("Operação negada: Este CPF já esta cadastrado.");
         }
 
-        User newUser = new User(name, cpf, email);
+        String hashedPassword = passwordEncoder.encode(password);
+
+        User newUser = new User(name, cpf, email, hashedPassword);
 
         String uniqueAccountNumber = generateUniqueAccountNumber();
         Account newAccount = new Account(uniqueAccountNumber, newUser);

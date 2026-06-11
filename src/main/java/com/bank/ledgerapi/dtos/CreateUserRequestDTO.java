@@ -11,6 +11,9 @@ public record CreateUserRequestDTO(
         String cpf,
 
         @Schema(description = "E-mail corporativo ou pessoal", example = "johndoe@email.com")
-        String email
+        String email,
+
+        @Schema(description = "Senha do usuário", example = "StrongPassword")
+        String password
 ) {
 }
