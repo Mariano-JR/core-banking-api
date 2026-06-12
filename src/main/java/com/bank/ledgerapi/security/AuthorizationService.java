@@ -23,7 +23,7 @@ public class AuthorizationService implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("Usuário não encontrado com o CPF informado.");
         }
-        System.out.println("✅ USUÁRIO ENCONTRADO! NOME: " + ((User) user).getName());
+
         return user;
     }
 }

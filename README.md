@@ -49,7 +49,7 @@ Here is the planned evolution for this financial architecture:
 - [x] **Phase 4:** Transaction Engine (ACID compliance with `@Transactional`).
 - [x] **Phase 5:** Global Exception Handling (`@ControllerAdvice`) & Data Validation.
 - [x] **Phase 6:** API Documentation (Swagger/OpenAPI integration).
-- [ ] **Phase 7:** Security Layer (Spring Security, Password Hashing & JWT Authentication).
+- [x] **Phase 7:** Security Layer (Spring Security, Password Hashing & JWT Authentication).
 - [ ] **Phase 8:** Automated Testing (Unit testing with JUnit 5 & Mockito).
 - [ ] **Phase 9:** CI/CD Pipeline (GitHub Actions & Automated Builds).
 - [ ] **Phase 10:** Cloud Deployment (AWS EC2 / RDS Integration).
