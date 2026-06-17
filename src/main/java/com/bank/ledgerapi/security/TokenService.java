@@ -15,7 +15,7 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
-    @Value("${api.security.token.secret")
+    @Value("${api.security.token.secret}")
     private String secret;
 
     private static final String ISSUER = "ledger-api";
@@ -41,7 +41,7 @@ public class TokenService {
                     .build()
                     .verify(token)
                     .getSubject();
-        } catch (JWTCreationException exception) {
+        } catch (JWTVerificationException exception) {
             return "";
         }
     }

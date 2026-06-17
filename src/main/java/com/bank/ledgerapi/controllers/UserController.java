@@ -2,6 +2,7 @@ package com.bank.ledgerapi.controllers;
 
 import com.bank.ledgerapi.dtos.CreateUserRequestDTO;
 import com.bank.ledgerapi.dtos.StandardErrorDTO;
+import com.bank.ledgerapi.dtos.UserResponseDTO;
 import com.bank.ledgerapi.entities.User;
 import com.bank.ledgerapi.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -37,9 +38,9 @@ public class UserController {
                     )
             )
     })
-    public ResponseEntity<User> createUser(@RequestBody CreateUserRequestDTO user) {
+    public ResponseEntity<UserResponseDTO> createUser(@RequestBody CreateUserRequestDTO user) {
         User savedUser = userService.createUser(user.name(), user.cpf(), user.email(), user.password());
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);
+        return ResponseEntity.status(HttpStatus.CREATED).body(UserResponseDTO.from(savedUser));
     }
 }

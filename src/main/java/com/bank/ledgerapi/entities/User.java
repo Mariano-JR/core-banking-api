@@ -61,7 +61,7 @@ public class User implements UserDetails {
 
     public void setPassword(String password) { this.password = password; }
 
-    public Account getAccount() { return account; }
+    public Account getAccount() { return this.account; }
     
     public void bindAccount(Account account) {
         if (this.account != null) {
