@@ -30,6 +30,8 @@ public class TokenService {
                     .sign(algorithm);
         } catch (JWTCreationException exception) {
             throw new RuntimeException("Erro ao gerar o token JWT", exception);
+        } catch (IllegalArgumentException exception) {
+            throw new RuntimeException("Erro interno: Chave JWT não configurada", exception);
         }
     }
 
@@ -43,6 +45,8 @@ public class TokenService {
                     .getSubject();
         } catch (JWTVerificationException exception) {
             return "";
+        } catch (IllegalArgumentException exception) {
+            throw new RuntimeException("Erro interno: Chave JWT não configurada", exception);
         }
     }
 
