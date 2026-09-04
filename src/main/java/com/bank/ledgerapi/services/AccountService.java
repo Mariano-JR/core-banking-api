@@ -16,6 +16,18 @@ public class AccountService {
     }
 
     @Transactional
+    public void depositMoney(String accountNumber, BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("O valor de deposito deve ser maior que zero.");
+        }
+
+        Account account = accountRepository.findByAccountNumber(accountNumber)
+                .orElseThrow(() -> new IllegalArgumentException("Conta não encontrada."));
+
+        account.addBalance(amount);
+    }
+
+    @Transactional
     public void transferMoney(String fromAccountNumber, String toAccountNumber, BigDecimal amount) {
 
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
