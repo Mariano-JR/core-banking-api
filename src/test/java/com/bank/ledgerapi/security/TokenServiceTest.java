@@ -1,8 +1,6 @@
 package com.bank.ledgerapi.security;
 
-import com.bank.ledgerapi.entities.Account;
 import com.bank.ledgerapi.entities.User;
-import org.h2.command.Token;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
