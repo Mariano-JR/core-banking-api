@@ -1,5 +1,6 @@
 package com.bank.ledgerapi.controllers;
 
+import com.bank.ledgerapi.dtos.DepositRequestDTO;
 import com.bank.ledgerapi.dtos.TransferRequestDTO;
 import com.bank.ledgerapi.services.AccountService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -16,6 +17,17 @@ public class AccountController {
 
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
+    }
+
+    @PostMapping("/deposit")
+    public ResponseEntity<String> depositMoney(@RequestBody DepositRequestDTO request) {
+
+        accountService.depositMoney(
+                request.accountNumber(),
+                request.amount()
+        );
+
+        return ResponseEntity.ok("Deposito realizado com sucesso!");
     }
 
     @PostMapping("/transfer")
